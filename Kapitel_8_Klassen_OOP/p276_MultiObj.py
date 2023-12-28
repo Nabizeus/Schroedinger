@@ -28,10 +28,13 @@ class Eggs: #CamelCase
 
 # Instanzieren: Weise einer Variable eine Klasse zu, und somit wird ein neues Objekt eggs entstehen
 eggs = Eggs()
+noch_ein_objekt = Eggs()
+leckeres_essen = Eggs()
 # Zugriff von aussen. Objekt: eggs, Element: eine_methode, Methode: Mit runden Klammern
 eggs.eine_methode()
+noch_ein_objekt.ein_attribut = 34 # Hier wurde bei jedem Objekt das Attribut ein_attribut geaendert
+leckeres_essen.ein_attribut = 5
 print("eggs.ein_attribut",eggs.ein_attribut) # Zugriff auf Attribut von aussen
-print("eggs.__doc__",eggs.__doc__)
-print("Spam272.__doc__",Spam272.__doc__)
-help(eggs)
-help(Spam272)
+noch_ein_objekt.eine_methode()
+leckeres_essen.eine_methode() # Wir haben den Attributen unterschiedliche Werte zugewiesen und somit sind sie unabhaengig
+# voneinander
