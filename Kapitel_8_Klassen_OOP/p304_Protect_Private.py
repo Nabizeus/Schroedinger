@@ -1,31 +1,29 @@
-# Getter and Setter
+# Public Private & Proteced
 
 """ @ Property"""
 
-class Spam: # Nie negative Zahlen zulassen
-    def __init__(self): # Hier initialisieren wir das Attribut, um das es geht. Die eigenartige ist privat. Kein Zugriff
-        self.__nummer = 0
-    @property
-    def nummer(self):
+class Spam304:
+    def __init__(self):
+        self._steuersatz = 7 #1 Hier haben wir einen Wert der Protected ist fuer aussen
+
+    def __berechne(self, preis): #2 Diese Methode ist private. Kann nur innerhalb der Klasse aufgerufen werden
         """Die Property fuer immer"""
+        return preis*(1+0.01*self._steuersatz) #3 Das Proteced Attribut _steuersatz fuer Berechnung. Moeglich da intern
 
-    @nummer.setter
-    def nummer(self, wert):
-        self.__nummer = abs(wert)
-    @nummer.getter
-    def nummer(self): # Klassicher Getter. Den Wert gibt es zurück, auch modifiziert, zb als int
-        return int(self.__nummer) # Attribut ist float und soll so sein. Jedoch der Wert als Interger ausgeben
+    def wert(self, wert): #4 Diese Methode ist Public. Es benutzt die Proteced und Private Methoden
+        ergebnis = int(self.__berechne(wert)) #5 Das Private Methode __berechne fuer Ausgabe. Moeglich da intern.
+        print(f"Bruttowert fuer den Kauf mit dem {self._steuersatz: .2f} % Steuersatz: {ergebnis: .2f} €")
 
+brutto = Spam304()
 
-egg = Spam()
-egg.nummer = -15.5 # __nummer wird im Objekt yu 15.5. Setter muss explizit aufgerufen werden.
-print(egg.nummer)  #Durch getter koennen wir Zugriff auf Private variable __nummer zugreifen. Intern kein Aendrung.
+brutto.wert(300)
 
+#---------------Falls versuchte wird auf Protected zuzugreifen
 
-# Das ist aber kein Pythonway
+brutto._steuersatz = 8 #3 Der Zugriff auf _steuersatz ist Moeglich aber sollte nicht gemacht werden
 
-# Dafuer Property Funktion!
+brutto.wert(300)
 
-egg.nummer = -17.6
-print(egg.nummer)
-
+#---------------Falls versuchte wird auf Private zuzugreifen
+print("brutto.__dir__() ",brutto.__dir__()) #Python bennent die Private Sachen in ein Proteced, also hier __berechne ins _Spam304__berechne um
+brutto.__berechne(500)
