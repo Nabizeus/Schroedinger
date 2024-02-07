@@ -6,11 +6,11 @@ class EinmaligeAntwort: #CamelCase
     def __init__(self,eingabe):  # Besondere Methode, einmalig, wenn ein neues Objekt aus einer Klasse erstellt
         """Initialisierung der Antworten...."""
 
-        print("Willkommen bei der Orakel von DELPHI! Gib deine Frage...Gibt es eine Chance bei Elena???")
+        print("Willkommen bei der EinmaligeAntwort ohne Wiederholung")
         self.alte_antwort = None
         if isinstance(eingabe,(tuple,list)):
 
-            self.__antwort_liste = eingabe
+            self.antwort_liste = eingabe
 
     # Methode
     def select(self):
@@ -18,7 +18,7 @@ class EinmaligeAntwort: #CamelCase
 
         while True:# Solange die Schleife laufen lassen bis eine IF Anweisung falsch laueft
 
-            auswahl = random.choice(self.__antwort_liste) # Mit dieser Methode, Zugriff auf ein Klasseninternes Attribut
+            auswahl = random.choice(self.antwort_liste)
 
 
             if auswahl != self.alte_antwort: # Erst wenn die Auswahl ungleich ist, dann wird die Schleife verlassen
@@ -26,15 +26,3 @@ class EinmaligeAntwort: #CamelCase
                 self.alte_antwort = auswahl
 
                 return auswahl
-
-
-
-# Instanzieren: Weise einer Variable eine Klasse zu, und somit wird ein neues Objekt eggs entstehen
-
-list_antw = ("Ja","Nein","Vielleicht ;)")
-antwort = EinmaligeAntwort(list_antw)
-print(antwort.select())
-
-antwort.antworten = list_antw
-
-print(antwort.select())
