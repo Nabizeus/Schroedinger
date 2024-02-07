@@ -40,9 +40,9 @@ class Orakel: #CamelCase
 
         # Interpret the sequence
         interpretation = {
-            'J': 'Ja, sie liebt dich noch, und gibt dir ein Bonus-Chance',
-            'N': 'Nein, ihr kommt nicht zusammen',
-            'V': 'Vielleicht, aber vlt. auch nicht'
+            'J': 'Ja, sie liebt dich noch, und gibt dir ein Bonus-Chance, auch wenn sie nicht will!',
+            'N': 'Nein, ihr kommt nicht zusammen! Wtf? Go live your life!',
+            'V': 'Vielleicht, aber vlt. auch nicht. Alea iacta est!'
         }
 
         # Replace letters with interpretations
