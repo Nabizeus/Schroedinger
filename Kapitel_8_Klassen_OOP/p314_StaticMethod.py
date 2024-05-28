@@ -1,24 +1,34 @@
-from p307_EinmaligeAntwort import EinmaligeAntwort
-class TitelAuswahl(EinmaligeAntwort): #Titelauswahl diese Klasse bzw. abgeleit Klasse. EinmaligeAntwort Urklasse
-    """Vererbte Funktion p307"""
 
-    def __init__(self,eingabe):  # Besondere Methode, einmalig, wenn ein neues Objekt aus einer Klasse erstellt
-        """Initialisierung der Antworten...."""
+class MachWas:
+    """Klassen Methode?"""
 
-        print("Willkommen bei der TitelAuswahl")
-        self.alte_antwort = None
-        self.antwort_liste = tuple(range(eingabe))
+    counter = 0 # Klassenattribut
+    #MachWas.counter = 1 # T#his does not work
 
-        super(TitelAuswahl, self).__init__(12) # Mit super der Init von Urklasse aufgeruffen
+    def aufruf(self):
+
+        print("Ich tue mal was")
+        MachWas.counter +=1
+
+    # STATIC METHOD; Methoden, die ohne Objekt verwendet werden koennen
+
+    # def aufruf(self): Nur durch Objekt aufrunfbar, daher self notwending
+    # @staticmethod
+    # def ausgabe(wert): Ohne Objekt aufrubar, daher kein self notwending
+    @staticmethod #Dekorator
+    def upper(wert):
+        print(wert.upper())
 
 
+print(MachWas)
+print(MachWas.counter)
+print(MachWas.counter)
+print(MachWas().aufruf())
+obj = MachWas()
+print(obj.aufruf())
+print(MachWas.counter)
+print(MachWas.counter)
+obj.aufruf()
+print(MachWas.counter)
 
-
-
-
-
-song = TitelAuswahl(99)
-
-
-for i in range(10):
-    print(song.select(), end=" ")
+MachWas.upper("Hallo Schroedinger")
