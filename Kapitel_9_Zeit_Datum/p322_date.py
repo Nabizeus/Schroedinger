@@ -18,3 +18,6 @@ def ausgabe_zeitreise(datumsObjekt):
 text = ausgabe_zeitreise(date.today())
 
 print(text)
+
+import locale
+#locale.setlocale(locale.LC_ALL,'de_DE') Lokalen Wochentagangabenp322_date.py

@@ -1,23 +1,9 @@
 from datetime import date
 
-print(date.today())
+xmas = date(2023,11,4)
 
-# Danke String from time
+silvester = xmas.replace(year=2024,month=4,day=21)
 
-print(date.today().strftime('%d.%m.%Y')) # Durch Verkettung chaining
-print(date.today().strftime("Wir schreiben das Jahr %Y"))
-
-def ausgabe_zeitreise(datumsObjekt):
-    textMuster = "Im %m.Monat des Jahres %Y verschwand "\
-    "der Zeitreisende Schroedinger."
-    ergebnis = datumsObjekt.strftime(textMuster)
-
-    return ergebnis
-
-
-text = ausgabe_zeitreise(date.today())
-
-print(text)
-
-import locale
-#locale.setlocale(locale.LC_ALL,'de_DE') Lokalen Wochentagangabenp322_date.py
+print(xmas.strftime("Xmas %Y:"),xmas)
+print(silvester.strftime("Silvester %Y: "),silvester)
+print("Dt zwischen "+silvester.strftime("Silvester %Y ") +"und " +xmas.strftime("Xmas %Y ="), silvester-xmas)

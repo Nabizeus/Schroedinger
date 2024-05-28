@@ -1,9 +1,18 @@
-from datetime import date
+from datetime import time
 
-xmas = date(2023,11,4)
+zeit = time(hour=3,minute=11,second=4)
 
-silvester = xmas.replace(year=2024,month=4,day=21)
 
-print(xmas.strftime("Xmas %Y:"),xmas)
-print(silvester.strftime("Silvester %Y: "),silvester)
-print("Dt zwischen "+silvester.strftime("Silvester %Y ") +"und " +xmas.strftime("Xmas %Y ="), silvester-xmas)
+
+print(zeit.strftime("Uhrzeit %HH:%MM:%SS"))
+print(zeit.strftime("Uhrzeit %H:%M:%S"))
+
+
+#Auf Zeitobjekt via .hour, .minute, .second zugreifen
+print("zeit.hour ",zeit.hour)
+print("zeit.minute ",zeit.minute)
+print("zeit.second ",zeit.second)
+
+# Zeiten aendern
+
+print(" zeit.replace(7,34)",zeit.replace(7,34))

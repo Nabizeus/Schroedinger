@@ -4,12 +4,13 @@ print(date.today())
 
 # Danke String from time
 
-print(date.today().strftime('%d.%m.%Y')) # Durch Verkettung chaining
-print(date.today().strftime("Wir schreiben das Jahr %Y"))
+print(date.today().strftime('%%%d.%m.%Y%')) # Durch Verkettung chaining
+print(date.today().strftime("%b ist die Kurzform von %B"))
 
 def ausgabe_zeitreise(datumsObjekt):
-    textMuster = "Im %m.Monat des Jahres %Y verschwand "\
-    "der Zeitreisende Schroedinger."
+
+    textMuster = "Der %d.%m.%Y war der %-j.Tag des Jahres "
+
     ergebnis = datumsObjekt.strftime(textMuster)
 
     return ergebnis
